@@ -1,15 +1,17 @@
-import React, { useRef , useContext} from 'react'
+import React, { useRef , useContext, memo} from 'react'
 import { Context } from './../App';
 import './AddItem.css'
 
+
 // const AddItem = ({setExpnc, setTotal}) => {
 const AddItem = () => {
+    console.log("AddItems 123455");
 
     const {setExpnc,setTotal} = useContext(Context)
 
 
         const titleRef = useRef();
-        const priceRef = useRef();
+        const priceRef = useRef(); 
 
   return (
     <div className='add_sec'>
@@ -33,14 +35,12 @@ const AddItem = () => {
                     titleRef.current.value="";
                     priceRef.current.value="";   
                 }
-               
             }}
         >Add</button>
-      
     </div>
   )
 }
 
-export default AddItem
+export default memo(AddItem);
 
  

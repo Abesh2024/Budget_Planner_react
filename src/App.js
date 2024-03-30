@@ -12,7 +12,13 @@ function App() {
   const [expnc, setExpnc]= useState([]);
   const [total , setTotal] = useState(0);
 
-  
+
+  // function calculate () {
+  //   let value = expnc.reduce((acc, val)=>{
+  //     return acc + val
+  //   }, 0 )
+  //   return value;
+  // }
 
   return (
     <Context.Provider value={{total,setTotal,setExpnc,expnc}}>

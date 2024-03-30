@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, memo } from 'react'
 import { Context } from '../App';
 import './OverView.css'
 
 // const OverView = ({total}) => {
     const OverView = () => {
+      console.log("zbxhcjjcd");
 
-    const {total, setTotal} = useContext(Context)
+    const {total} = useContext(Context)
 
     const price = 2000;
   return (
@@ -20,4 +21,4 @@ import './OverView.css'
   )
 }
 
-export default OverView
+export default memo(OverView);

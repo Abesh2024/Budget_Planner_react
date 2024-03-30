@@ -1,16 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, memo} from "react";
 import { Context } from "../App";
 import "./ShowBudget.css";
+import { IoIosCloseCircle } from "react-icons/io";
+
 
 // const ShowBudget = ({expnc}) => {
 const ShowBudget = () => {
+  console.log("ReactJS00000")
 
-  const { expnc,setExpnc } = useContext(Context);
+  const { expnc,setExpnc, setTotal } = useContext(Context);
 
-  const handleDelete = (index) => {
+  const handleDelete = (index, price) => {
     const updatedExpnc = [...expnc];
     updatedExpnc.splice(index, 1);
     setExpnc(updatedExpnc);
+    setTotal(prevTotal =>  prevTotal - price);
   };
   return (
     <div className="show_sec">
@@ -25,7 +29,7 @@ const ShowBudget = () => {
             <span>Price: {item.price}</span>
           </div>
         
-          <button onClick={() => handleDelete(index)}>x</button>
+          <IoIosCloseCircle onClick={() => handleDelete(index, item.price)} />
         </div>
       ))
     )}
@@ -33,4 +37,4 @@ const ShowBudget = () => {
   );
 };
 
-export default ShowBudget;
+export default memo(ShowBudget);
